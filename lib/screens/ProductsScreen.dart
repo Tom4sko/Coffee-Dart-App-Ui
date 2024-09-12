@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learningstuff/screens/HomeScreen.dart';
+import 'package:learningstuff/widgets/navigation.dart';
 
 class ProductsScreen extends StatelessWidget {
   const ProductsScreen({super.key, required this.productName, required this.price, required this.photography, required this.description});
@@ -20,7 +20,7 @@ class ProductsScreen extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Navigation()));
           },
         ),
       ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:learningstuff/widgets/Tale1.dart';
-import 'package:learningstuff/screens/FavouriteScreen.dart'; // Import your FavouriteScreen
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -10,37 +9,10 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _currentIndex = 0;
-
-  void _onItemTapped(int index) {
-    if (index == _currentIndex) {
-      return;
-    }
-    switch (index) {
-      case 0:
-        Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
-        break;
-      case 1:
-        Navigator.push(context, MaterialPageRoute(builder: (context) => const FavouriteScreen()));
-        break;
-    }
-    setState(() {
-      _currentIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 77, 40, 40),
-      appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 22, 19, 19),
-        elevation: 1,
-        leading: IconButton(
-          icon: const Icon(Icons.menu, color: Colors.white),
-          onPressed: () {},
-        ),
-      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -215,25 +187,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color.fromARGB(255, 22, 19, 19),
-        currentIndex: _currentIndex,
-        onTap: _onItemTapped,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person, color: Colors.white),
-            label: 'Profile',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.star, color: Colors.white),
-            label: 'Favourite',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings, color: Colors.white),
-            label: 'Settings',
-          ),
-        ],
       ),
     );
   }
